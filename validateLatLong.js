@@ -127,7 +127,6 @@ function validateAdd(lata, longa, latb, longb) {
   var countrycode = country.value;
   console.log(country.value, lata, longa);
   for (var [key, value] of Object.entries(countryArr)) {
-    console.log(value);
     if (key == countrycode) {
       countrycode = key;
       latL = parseFloat(value.split(",")[0]);
