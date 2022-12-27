@@ -270,7 +270,6 @@ function addAddress() {
       if (ctry.value == "nd") {
         document.getElementById("add0").value =
           response.results[0].formatted_address;
-        drawPolyline();
       } else {
         if (response.results[0].formatted_address.includes(",")) {
           // To check for the country name
@@ -278,8 +277,6 @@ function addAddress() {
             // Populating address to the address field A
             document.getElementById("add0").value =
               response.results[0].formatted_address;
-
-            drawPolyline();
           } else {
             alert(
               "The entered co-ordinate doesnot belong to the selected country."
@@ -521,6 +518,8 @@ function elevationchart() {
       title: "Elevation (in m)",
     },
     legend: "none",
+    seriesType: "line",
+    series: { 0: { type: "area" } },
   };
 
   // chart options
@@ -540,7 +539,7 @@ function elevationchart() {
   };
 
   // Chart constructor for the main page of the website
-  var chart = new google.visualization.LineChart(
+  var chart = new google.visualization.ComboChart(
     document.getElementById("chart")
   );
 
