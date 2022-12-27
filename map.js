@@ -362,6 +362,7 @@ function drawPolyline() {
           "Cannot show elevation: request failed because " + e;
       });
   }
+  console.log("elevation api called");
 }
 
 function plotElevation({ results }) {
